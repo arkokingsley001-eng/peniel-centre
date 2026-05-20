@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peniel Educational Centre | Our Excellence, Our Passion</title>
+    <style>
+        /* --- PREMIUM DESIGN ROOT VARIABLES --- */
+        :root {
+            --primary-blue: #1e3a8a;     /* Deep Institutional Blue */
+            --accent-yellow: #facc15;    /* Vibrant Core Brand Yellow */
+            --text-dark: #1e293b;        /* Crisp Modern Neutral Dark */
+            --text-muted: #64748b;       /* Soft Slate for Descriptions */
+            --white: #ffffff;
+            --font-main: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            
+            /* Feature Card Colors */
+            --card-pink: #be123c;
+            --card-blue: #2563eb;
+            --card-purple: #6d28d9;
+            --card-orange: #ea580c;
+            --card-teal: #0d9488;
+            --card-gold: #b45309;
+            --card-magenta: #db2777;
+            --card-navy: #0f172a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--font-main);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--text-dark);
+            background-color: #f8fafc;
+            line-height: 1.6;
+        }
+
+        /* --- STICKY NAVIGATION BAR --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            z-index: 2000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.02);
+        }
+
+        .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 14px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-identity {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .brand-logo-mock {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 2px solid var(--white);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            background-color: var(--white);
+        }
+
+        .brand-logo-mock img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .brand-text-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-title {
+            font-size: 19px;
+            font-weight: 800;
+            color: var(--primary-blue);
+            letter-spacing: -0.3px;
+            line-height: 1.2;
+        }
+
+        .brand-subtitle {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: 28px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #475569;
+            font-weight: 600;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-blue);
+        }
+
+        .nav-link span.arrow {
+            font-size: 10px;
+            opacity: 0.7;
+        }
+
+        .cta-admission-btn {
+            background-color: #1e3a8a;
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px rgba(30, 58, 138, 0.15);
+            border-bottom: 3px solid var(--accent-yellow);
+        }
+
+        /* --- SEAMLESS HERO SHOWCASE FRAME --- */
+        .hero-banner-split {
+            position: relative;
+            margin-top: 75px;
+            height: 85vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0px; /* REMOVED separating line completely */
+            background-color: #0f172a;
+            overflow: hidden;
+        }
+
+        .hero-column {
+            background-repeat: no-repeat;
+            /* FOCUSES on the top part of the image where faces are usually located */
+            background-position: top center; 
+            background-size: cover;
+            position: relative;
+        }
+
+        .hero-col-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Sophisticated dark blend overlay to keep the text easy to read */
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.4) 0%, rgba(15, 23, 42, 0.75) 100%);
+        }
+
+        .hero-content-fixed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 5%;
+            color: var(--white);
+            z-index: 10;
+        }
+
+        .hero-content-fixed .inner {
+            max-width: 800px;
+            /* Extra text shadow defense to stay readable over light clothing/backgrounds */
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); 
+        }
+
+        .hero-tagline {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(8px);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .hero-tagline .dot {
+            width: 8px;
+            height: 8px;
+            background-color: #22c55e;
+            border-radius: 50%;
+        }
+
+        .hero-content-fixed h1 {
+            font-size: 64px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -1.5px;
+        }
+
+        .hero-content-fixed p {
+            font-size: 20px;
+            opacity: 0.95;
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        /* --- CORE SECTIONS AND GRID --- */
+        section {
+            padding: 90px 24px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px auto;
+        }
+
+        .section-label {
+            color: var(--primary-blue);
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .section-intro h2 {
+            font-size: 40px;
+            font-weight: 800;
+            color: #0f172a;
+            letter-spacing: -0.5px;
+            margin-bottom: 16px;
+        }
+
+        .section-intro p {
+            font-size: 16px;
+            color: var(--text-muted);
+        }
+
+        /* --- MULTI-COLORED GRID COMPONENT --- */
+        .features-showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-showcase-card {
+            position: relative;
+            border-radius: 24px;
+            padding: 35px 30px;
+            color: var(--white);
+            overflow: hidden;
+            height: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
+        }
+
+        .feature-showcase-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 35px -5px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-showcase-card.pink { background: linear-gradient(145deg, rgba(225,29,72,0.95), var(--card-pink)); }
+        .feature-showcase-card.blue { background: linear-gradient(145deg, rgba(59,130,246,0.95), var(--card-blue)); }
+        .feature-showcase-card.purple { background: linear-gradient(145deg, rgba(139,92,246,0.95), var(--card-purple)); }
+        .feature-showcase-card.orange { background: linear-gradient(145deg, rgba(249,115,22,0.95), var(--card-orange)); }
+        .feature-showcase-card.teal { background: linear-gradient(145deg, rgba(20,184,166,0.95), var(--card-teal)); }
+        .feature-showcase-card.gold { background: linear-gradient(145deg, rgba(217,119,6,0.95), var(--card-gold)); }
+        .feature-showcase-card.magenta { background: linear-gradient(145deg, rgba(236,72,153,0.95), var(--card-magenta)); }
+        .feature-showcase-card.navy { background: linear-gradient(145deg, rgba(30,41,59,0.95), var(--card-navy)); }
+
+        .card-icon-badge {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+        }
+
+        .feature-showcase-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -0.3px;
+        }
+
+        .feature-showcase-card p {
+            font-size: 14px;
+            opacity: 0.9;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        /* --- CONTACT LAYOUT --- */
+        .footer-contact-bar {
+            background-color: #0f172a;
+            color: var(--white);
+            padding: 60px 24px;
+        }
+
+        .contact-content-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-left h2 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .contact-left .motto-footer {
+            color: var(--accent-yellow);
+            font-weight: 600;
+            font-style: italic;
+            margin-bottom: 24px;
+        }
+
+        .contact-meta-row {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+
+        .meta-icon {
+            font-size: 20px;
+            margin-top: 2px;
+        }
+
+        .meta-txt h4 {
+            font-size: 14px;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .meta-txt p, .meta-txt a {
+            font-size: 16px;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        footer {
+            background-color: #020617;
+            color: #64748b;
+            text-align: center;
+            padding: 24px;
+            font-size: 14px;
+            border-top: 1px solid #1e293b;
+        }
+
+        @media(max-width: 992px) {
+            .nav-menu { display: none; }
+            .hero-content-fixed h1 { font-size: 42px; }
+            .contact-content-inner { grid-template-columns: 1fr; gap: 40px; }
+            .hero-banner-split { grid-template-columns: 1fr; height: 100vh; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="brand-identity">
+                <div class="brand-logo-mock">
+                    <img src="logo.jpeg" alt="Peniel Crest">
+                </div>
+                <div class="brand-text-wrapper">
+                    <span class="brand-title">PENIEL</span>
+                    <span class="brand-subtitle">Educational Centre</span>
+                </div>
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About <span class="arrow">▼</span></a></li>
+                <li><a href="#pillars" class="nav-link">Academics <span class="arrow">▼</span></a></li>
+                <li><a href="#clubs" class="nav-link">Campus Life <span class="arrow">▼</span></a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <a href="#contact" class="cta-admission-btn">Admissions Open</a>
+        </div>
+    </header>
+
+    <section class="hero-banner-split">
+        <div class="hero-column" style="background-image: url('front.jpeg');">
+            <div class="hero-col-overlay"></div>
+        </div>
+        <div class="hero-column" style="background-image: url('front1.jpeg');">
+            <div class="hero-col-overlay"></div>
+        </div>
+
+        <div class="hero-content-fixed">
+            <div class="inner">
+                <div class="hero-tagline">
+                    <div class="dot"></div> Admissions Open
+                </div>
+                <h1>Center of<br>Excellence</h1>
+                <p>A premier institution dedicated to nurturing future leaders through standard core developmental academic principles.</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="pillars" style="background-color: #ffffff;">
+        <section>
+            <div class="section-intro">
+                <span class="section-label">Excellence In Every Aspect</span>
+                <h2>Discover what makes Peniel Premier</h2>
+                <p>Discover what makes Peniel Educational Centre the premier choice for quality foundational education in Ghana.</p>
+            </div>
+
+            <div class="features-showcase-grid">
+                <div class="feature-showcase-card pink">
+                    <div class="card-icon-badge">❤️</div>
+                    <h3>Child-Centered Learning</h3>
+                    <p>Tailored development paths structured around foundational child intelligence models.</p>
+                </div>
+
+                <div class="feature-showcase-card blue">
+                    <div class="card-icon-badge">🛡️</div>
+                    <h3>Comprehensive Security</h3>
+                    <p>Dedicated tracking monitoring systems ensuring maximum physical safety metrics on campus grounds.</p>
+                </div>
+
+                <div class="feature-showcase-card purple">
+                    <div class="card-icon-badge">👥</div>
+                    <h3>Small Class Sizes</h3>
+                    <p>Optimized student-to-facilitator ratios ensuring targeted individual focus and attention.</p>
+                </div>
+
+                <div class="feature-showcase-card orange">
+                    <div class="card-icon-badge">📖</div>
+                    <h3>Quality Curriculum</h3>
+                    <p>National standard academic syllabus structured meticulously from Crèche down to JHS frameworks.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="clubs" class="bg-light">
+        <section style="padding-top: 40px;">
+            <div class="section-intro">
+                <span class="section-label">Campus Life & Engagement</span>
+                <h2>Enriching Student Development Clubs</h2>
+                <p>Building character, confidence, and specialized leadership talents outside standard classroom spaces.</p>
+            </div>
+
+            <div class="features-showcase-grid">
+                <div class="feature-showcase-card teal">
+                    <div class="card-icon-badge">🎖️</div>
+                    <h3>Cadet Corps</h3>
+                    <p>Instilling tactical discipline, high-order leadership, teamwork alignment, and national civic pride.</p>
+                </div>
+
+                <div class="feature-showcase-card gold">
+                    <div class="card-icon-badge">🎭</div>
+                    <h3>Drama & Debating</h3>
+                    <p>Developing eloquent speech articulation, structured argumentation, and outstanding dramatic public confidence.</p>
+                </div>
+
+                <div class="feature-showcase-card magenta">
+                    <div class="card-icon-badge">🧪</div>
+                    <h3>Maths & Science</h3>
+                    <p>Sparking logic puzzles, advanced laboratory concepts, and technology research methodologies.</p>
+                </div>
+
+                <div class="feature-showcase-card navy">
+                    <div class="card-icon-badge">🌍</div>
+                    <h3>Culture Club</h3>
+                    <p>Deepening rich local arts expressions, ancestral historic lineages, and heritage performance values.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="footer-contact-bar" id="contact">
+        <div class="contact-content-inner">
+            <div class="contact-left">
+                <h2>Peniel Educational Centre</h2>
+                <p class="motto-footer">"Our Excellence, Our Passion"</p>
+                <p style="color: #94a3b8; max-width: 500px; margin-bottom: 20px;">Get in touch with our administration offices today to request application guidelines or secure enrollment details for your child.</p>
+                
+                <div class="contact-meta-row">
+                    <div class="meta-item">
+                        <div class="meta-icon">📍</div>
+                        <div class="meta-txt">
+                            <h4>Campus Location</h4>
+                            <p>Oduntia-Amasaman, near Oduntia Presby Basic School</p>
+                        </div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-icon">📞</div>
+                        <div class="meta-txt">
+                            <h4>Hotlines</h4>
+                            <p><a href="tel:0244723966">0244723966</a> &nbsp;|&nbsp; <a href="tel:0244443266">0244443266</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-right" id="about">
+                <div style="background: #1e293b; padding: 40px; border-radius: 16px; border: 1px solid #334155;">
+                    <h3 style="margin-bottom: 15px; font-size: 20px;">Institutional Structure</h3>
+                    <p style="color: #94a3b8; font-size: 15px; margin-bottom: 20px;"> We accept and support prospective students sequentially through major learning life cycles:</p>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-weight: 600;">
+                        <li style="display:flex; align-items:center; gap:8px;"><span style="color:var(--accent-yellow);">✓</span> Crèche & Nursery Development</li>
+                        <li style="display:flex; align-items:center; gap:8px;"><span style="color:var(--accent-yellow);">✓</span> Kindergarten Foundation Stages</li>
+                        <li style="display:flex; align-items:center; gap:8px;"><span style="color:var(--accent-yellow);">✓</span> Primary Education Milestones</li>
+                        <li style="display:flex; align-items:center; gap:8px;"><span style="color:var(--accent-yellow);">✓</span> Junior High School (JHS) Prep</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Peniel Educational Centre. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
