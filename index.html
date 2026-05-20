@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peniel Educational Centre | Our Excellence, Our Passion</title>
+    <style>
+        /* --- DESIGN BRANDING SYSTEM (Blue & Yellow) --- */
+        :root {
+            --primary-color: #1e3a8a;    /* Premium Deep Blue */
+            --secondary-color: #facc15;  /* Vibrant Educational Yellow */
+            --dark-blue: #172554;
+            --text-color: #334155;
+            --light-bg: #f8fafc;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* --- Navigation --- */
+        header {
+            background-color: var(--primary-color);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            border-bottom: 4px solid var(--secondary-color);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+
+        .logo-text {
+            color: var(--white);
+            font-size: 22px;
+            font-weight: 800;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        .logo-text span {
+            color: var(--secondary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(rgba(24, 37, 84, 0.85), rgba(30, 58, 138, 0.8)), url('https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 44px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero .motto {
+            font-size: 22px;
+            color: var(--secondary-color);
+            font-style: italic;
+            font-weight: 600;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 700px;
+            margin-bottom: 35px;
+            opacity: 0.95;
+        }
+
+        .btn {
+            background-color: var(--secondary-color);
+            color: var(--dark-blue);
+            padding: 14px 35px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--white);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        /* --- Global Sections --- */
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            margin: 12px auto 0;
+            border-radius: 2px;
+        }
+
+        /* --- About / Levels Section --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: var(--dark-blue);
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .level-badges {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .badge {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .badge.yellow-badge {
+            background-color: var(--secondary-color);
+            color: var(--dark-blue);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.15);
+            border: 3px solid var(--light-bg);
+        }
+
+        /* --- Clubs / Activities Section --- */
+        .bg-light {
+            background-color: var(--light-bg);
+        }
+
+        .club-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .club-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            border-top: 5px solid var(--primary-color);
+            transition: transform 0.3s;
+        }
+
+        .club-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+        }
+
+        .club-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        /* --- Contact Section --- */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .info-box {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .info-box h3 {
+            color: var(--secondary-color);
+            margin-bottom: 25px;
+            font-size: 24px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .info-item span {
+            font-size: 20px;
+            margin-right: 15px;
+        }
+
+        .phone-link {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .phone-link:hover {
+            color: var(--secondary-color);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        form input, form textarea {
+            padding: 14px;
+            margin-bottom: 15px;
+            border: 1px solid #cbd5e0;
+            border-radius: 6px;
+            font-size: 16px;
+            background-color: var(--light-bg);
+        }
+
+        form button {
+            background-color: var(--secondary-color);
+            color: var(--dark-blue);
+            padding: 14px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 16px;
+            transition: background 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        form button:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 25px;
+            font-size: 14px;
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        /* --- Responsive Viewports --- */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .about-grid, .contact-layout { grid-template-columns: 1fr; gap: 30px; }
+            .hero h1 { font-size: 32px; }
+            .hero .motto { font-size: 18px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation Map -->
+    <header>
+        <nav class="nav-container">
+            <a href="#" class="logo-text">PENIEL <span>EDUCATIONAL CENTRE</span></a>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">Our Levels</a></li>
+                <li><a href="#activities">Clubs</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Hero Campus Showcase -->
+    <section class="hero">
+        <h1>Peniel Educational Centre</h1>
+        <div class="motto">"Our Excellence, Our Passion"</div>
+        <p>Providing holistic, grounded education to cultivate brilliant minds, outstanding characters, and innovative future leaders right here in Oduntia-Amasaman.</p>
+        <a href="#contact" class="btn">Enroll Your Child Today</a>
+    </section>
+
+    <!-- Academic Levels Infrastructure -->
+    <section id="about">
+        <h2 class="section-title">Academic Structure</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <h3>Nurturing Students From Foundations to JHS</h3>
+                <p>At Peniel Educational Centre, we build a seamless educational journey. We cater to early development stages up to critical state-level junior secondary milestones, ensuring standard-driven academic growth.</p>
+                
+                <div class="level-badges">
+                    <span class="badge">Crèche</span>
+                    <span class="badge yellow-badge">Nursery</span>
+                    <span class="badge">Kindergarten</span>
+                    <span class="badge yellow-badge">Primary School</span>
+                    <span class="badge">Junior High School (JHS)</span>
+                </div>
+                <p>Our curriculum matches national educational frameworks combined with values that emphasize our baseline core commitment: turning passion into lifelong academic excellence.</p>
+            </div>
+            <div class="about-image">
+                <!-- Integrated educational science lab graphic image asset -->
+                <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=600&q=80" alt="Students engaging in practical experiments in a science laboratory">
+            </div>
+        </div>
+    </section>
+
+    <!-- Extracurricular Programs / Clubs Hub -->
+    <div class="bg-light" id="activities">
+        <section>
+            <h2 class="section-title">Clubs & Culture</h2>
+            <div class="club-grid">
+                <div class="club-card">
+                    <h3>🎖️ Cadet Corps</h3>
+                    <p>Building character, structural discipline, alignment, patriotism, and strategic physical leadership skills among young student officers.</p>
+                </div>
+                <div class="club-card">
+                    <h3>🎭 Drama & Debating Club</h3>
+                    <p>Developing strong public speaking skills, active confidence, analytical debate strategies, and creative artistic stagecraft.</p>
+                </div>
+                <div class="club-card">
+                    <h3>🧪 Maths & Science Club</h3>
+                    <p>Fostering dynamic problem solving, mathematical reasoning, and hands-on experimental logic beyond regular textbooks.</p>
+                </div>
+                <div class="club-card">
+                    <h3>🌍 Culture Club</h3>
+                    <p>Celebrating rich heritage traditions, traditional dance frameworks, identity history, and local arts expression.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Interactive Contact Channels & Location Information -->
+    <section id="contact">
+        <h2 class="section-title">Reach Out To Us</h2>
+        <div class="contact-layout">
+            <div class="info-box">
+                <h3>School Contacts</h3>
+                
+                <div class="info-item">
+                    <span>📍</span>
+                    <p>Oduntia-Amasaman,<br>Near Oduntia Presby Basic School</p>
+                </div>
+
+                <div class="info-item">
+                    <span>📞</span>
+                    <p>
+                        <a href="tel:0244723966" class="phone-link">0244723966</a> / <br>
+                        <a href="tel:0244443266" class="phone-link">0244443266</a>
+                    </p>
+                </div>
+
+                <div class="info-item">
+                    <span>🕒</span>
+                    <p>Monday - Friday: 7:00 AM - 4:30 PM</p>
+                </div>
+            </div>
+
+            <div>
+                <form action="#" method="POST" onsubmit="alert('Thank you for reaching out to Peniel Educational Centre. We will contact you soon!'); return false;">
+                    <input type="text" placeholder="Parent / Guardian Name" required>
+                    <input type="tel" placeholder="Your Phone Number" required>
+                    <textarea rows="4" placeholder="Your Inquiry (e.g., Admission requirements, Fees structure)" required></textarea>
+                    <button type="submit">Submit Inquiry</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Institutional Footer Anchor -->
+    <footer>
+        <p>&copy; 2026 Peniel Educational Centre. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
